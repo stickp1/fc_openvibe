@@ -3,11 +3,11 @@ Functional Connectivity algorithms for OpenViBE
 
 algorithms: 
 
-Imaginary Part of Coherency (using the Welch method) [1]
-Imaginary Part of Coherency (using the Hilbert transform) 
-weighted Phase Lag Index (using the Hilbert transform) [2]
-corrected imaginary Phase Locking Value (using the Hilbert transform) [3]
-Phase Slope Index (using the Welch method) [4]
+Imaginary Part of Coherency (using the Welch method) [1]  
+Imaginary Part of Coherency (using the Hilbert transform)  
+weighted Phase Lag Index (using the Hilbert transform) [2]  
+corrected imaginary Phase Locking Value (using the Hilbert transform) [3]  
+Phase Slope Index (using the Welch method) [4]  
 
 this work was done in the context of my master thesis in Biomedical Engineering, "Connectivity-based EEG-Neurofeedback in VR: pipeline development and experimental validation" (Instituto Superior Técnico, University of Lisbon)
 
