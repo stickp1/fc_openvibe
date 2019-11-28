@@ -202,10 +202,14 @@ boolean CAlgorithmWeightedPhaseLagIndex::process(void)
 					{
 						l_vecXdAnalytic2(i) = op_pHilbertMatrix->getBuffer()[i]; // Store instantaneous phase given by Hilbert algorithm
 						
-						num += (l_vecXdChannelToCompare1(i)+iComplex*l_vecXdAnalytic1(i))*(l_vecXdChannelToCompare2(i)-iComplex*l_vecXdAnalytic2(i)); // cross-spectrum where spectrum is obtained through Hilbert (real signal + imaginary part) 
-						norm += abs((l_vecXdChannelToCompare1(i)+iComplex*l_vecXdAnalytic1(i))*(l_vecXdChannelToCompare2(i)-iComplex*l_vecXdAnalytic2(i))); // normalization factor. If sgn(num) is always 1 or -1, WPLI yields maximum connectivity
-					}
-					l_opMatrixBuffer[channel] = abs(imag(num)/norm);
+						num += imag((l_vecXdChannelToCompare1(i) + iComplex*l_vecXdAnalytic1(i))*(l_vecXdChannelToCompare2(i) - iComplex*l_vecXdAnalytic2(i))); // cross-spectrum where spectrum is obtained through Hilbert (real signal + imaginary part) 
+						norm += abs(imag((l_vecXdChannelToCompare1(i) + iComplex*l_vecXdAnalytic1(i))*(l_vecXdChannelToCompare2(i) - iComplex*l_vecXdAnalytic2(i)))); // normalization factor. If sgn(num) is always 1 or -1, WPLI yields maximum connectivity
+					}	
+					complex<double> zero = 0;
+					if (norm == zero)
+						l_opMatrixBuffer[channel] = 0;
+					else
+						l_opMatrixBuffer[channel] = abs(num/norm);
 					//cout<<"wPLI: "<<l_opMatrixBuffer[channel]<<endl;
 				}
 
